@@ -37,9 +37,10 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Tailspin.SpaceGame.LeaderboardContainer/Dockerfile'
         containerRegistry: 'Container Registry Connection'
         tags: |
+          $(tag)
     - publish: '$(Build.SourcesDirectory)/manifests'
       artifact: manifests
-          $(tag)
+          
     
 - stage: 'Deploy'
   displayName: 'Deploy the containers'
